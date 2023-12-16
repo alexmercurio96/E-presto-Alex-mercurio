@@ -17,6 +17,11 @@ use App\Http\Controllers\PublicController;
 
 Route::get('/',[PublicController::class,'welcome'])->name('welcome');
 
+// Rotta che mi mostra il form per creare un film di blog
 Route::get('/movie/create',[MovieController::class,'create'])->name('movie.create');
 
-Route::get('/movie/store',[MovieController::class,'store'])->name('movie.store');
+// rotta che mi farà salvare i dati nel db
+Route::post('/movie/store',[MovieController::class,'store'])->name('movie.store');
+
+// rotta che mi recupera i film creati e me li mostra
+Route::get('/movie/index',[MovieController::class,'index'])->name('movie.index');

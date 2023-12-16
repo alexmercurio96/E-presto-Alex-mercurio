@@ -1,6 +1,14 @@
 <x-layout>
 
 
+
+  @if (session('message'))
+  <div class="alert alert-success">
+      {{ session('message') }}<button type="button" class="btn-close mx-2" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+@endif
+
+
     {{-- HEADER --}}
 
     <div class="container my-5" data-bs-theme="dark">
@@ -27,19 +35,19 @@
         @csrf
       <div class="mb-3">
         <label for="title" class="form-label">titolo del film</label>
-        <input type="text" class="form-control" id="title">
+        <input type="text" name="title" class="form-control" id="title">
       </div>
       <div class="mb-3">
         <label for="author" class="form-label">autore del film</label>
-        <input type="text" class="form-control" id="author">
+        <input type="text" name="author" class="form-control" id="author">
       </div>
       <div class="mb-3">
-        <label for="body" class="form-label">inserisci il tuo film</label>
+        <label for="body" class="form-label">trama</label>
       <textarea name="body" class="form-control" id="body" cols="30" rows="10"></textarea>
       </div>
           
        
-        <button type="submit" class="btn btn-primary flex-column">Submit</button>
+        <button type="submit" class="btn btn-primary flex-column">inserisci il film</button>
      </form>
 
           </div>
