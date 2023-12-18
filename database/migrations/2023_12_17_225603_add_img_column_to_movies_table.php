@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('movies', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('author');
-            $table->text('body');
-            // $table->string('img');
-            $table->timestamps();
+        Schema::table('movies', function (Blueprint $table) {
+            $table->string('img')->after('author')->default('public/image/default.jpg');
         });
     }
 
@@ -26,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('movies');
+        Schema::table('movies', function (Blueprint $table) {
+            $table->dropColumn('img');
+        });
     }
 };

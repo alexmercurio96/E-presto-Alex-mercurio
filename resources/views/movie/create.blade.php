@@ -27,11 +27,11 @@
  
       <div class="container"  >
         <div class="row justify-content-center " >
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-5">
 
        {{-- FORM --}}
 
-    <form method="POST" action="{{route('movie.store')}}" class="p-4 shadow my-5 rounded-4 text-center bg-dark text-white" >
+    <form enctype="multipart/form-data" method="POST" action="{{route('movie.store')}}" class="p-4  my-5 rounded-4 text-center bg-dark text-white form-custom" >
         @csrf
       <div class="mb-3">
         <label for="title" class="form-label">titolo del film</label>
@@ -40,6 +40,10 @@
       <div class="mb-3">
         <label for="author" class="form-label">autore del film</label>
         <input type="text" name="author" class="form-control" id="author">
+      </div>
+      <div class="mb-3">
+        <label for="img" class="form-label">immagine</label>
+        <input type="file" name="img" class="form-control" id="img">
       </div>
       <div class="mb-3">
         <label for="body" class="form-label">trama</label>

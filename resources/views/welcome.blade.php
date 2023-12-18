@@ -12,7 +12,7 @@
              qui potrai inserire i tuoi film
           </p>
           <button class="btn btn-primary px-5 mb-5" type="button">
-            Call to action
+            <a class="nav-link align-items-center" href="{{route('movie.create')}}">crea il tuo film</a>
           </button>
         </div>
       </div>

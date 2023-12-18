@@ -25,3 +25,6 @@ Route::post('/movie/store',[MovieController::class,'store'])->name('movie.store'
 
 // rotta che mi recupera i film creati e me li mostra
 Route::get('/movie/index',[MovieController::class,'index'])->name('movie.index');
+
+// rotta che mi mostra i dettagli di un film
+Route::get('/movie/show{movie}',[MovieController::class,'show'])->name('movie.show');

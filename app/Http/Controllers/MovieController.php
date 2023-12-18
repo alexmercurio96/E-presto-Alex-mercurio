@@ -56,4 +56,13 @@ class MovieController extends Controller
         );
 
     }
+
+    public function show(Movie $movie){ 
+        
+        // dd($movie);
+        return view('movie.show',
+        // ['movie'=> $movie]
+        compact('movie')
+    );
+    }
 }
