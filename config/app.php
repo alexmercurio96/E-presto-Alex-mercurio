@@ -159,7 +159,8 @@ return [
         /*
          * Package Service Providers...
          */
-
+        // solo in questo caso non importare la classe
+        App\Providers\FortifyServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -168,6 +169,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
     ])->toArray(),
 
     /*

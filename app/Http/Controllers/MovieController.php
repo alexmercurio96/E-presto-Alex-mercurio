@@ -6,7 +6,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Movie;
 use Illuminate\Http\Request;
-use App\Http\Controllers\MovieController;
+use App\Http\Requests\MovieFormRequest;
+
+
 
 class MovieController extends Controller
 {
@@ -15,13 +17,13 @@ class MovieController extends Controller
         return view('movie.create');
 
     }
-    public function store( Request $request){
+    public function store(MovieFormRequest $request){
       
-           $request->validate([
-            'title' => 'required',
-            'author' => 'required',
-            'body' => 'required',
-           ]);
+        //    $request->validate([
+        //     'title' => 'required',
+        //     'author' => 'required', 
+        //     'body' => 'required',
+        //    ]);
 
         // $title= $request->title;
         // $author= $request->author;
