@@ -13,7 +13,7 @@
             <a class="nav-link active" aria-current="page" href="{{route('welcome')}}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('movie.create')}}">inserisci il tuo articolo</a>
+            <a class="nav-link" href="{{route('movie.create')}}">inserisci il tuo film</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{route('movie.index')}}">tutti gli articoli</a>

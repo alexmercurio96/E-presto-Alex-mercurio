@@ -17,11 +17,17 @@ class MovieController extends Controller
     }
     public function store( Request $request){
       
+           $request->validate([
+            'title' => 'required',
+            'author' => 'required',
+            'body' => 'required',
+           ]);
+
         // $title= $request->title;
         // $author= $request->author;
         // $body= $request->body;
-  
-
+           
+         
         // METODO SENZA MASS ASSIGNMENT
         // $movie = new Movie();
 
@@ -33,15 +39,20 @@ class MovieController extends Controller
 
         //  dd('ho salvato il mio articolo del db');
 
-
-        // QUESTO è IL METODO PIù CORRETTO IN QUANTO NON Cè BISOGNO DI SALVARE E SFRUTTA A PIENO LA FILLABLE
-
+         
+                // QUESTO è IL METODO PIù CORRETTO IN QUANTO NON Cè BISOGNO DI SALVARE E SFRUTTA A PIENO LA FILLABLE
+        if($request->file('img')){
+        $img = $request->file('img')->store('/public/image');
+        }
+        else{
+            $img='public/image/default.jpg';
+        }
         // MASS ASSIGNMENT e bisogna metterle tutte insieme perchè se viene aggiunta dopo non funziona
         Movie::create([
           'title'=>$request->title,
           'author'=>$request->author,
           'body'=>$request->body,
-          
+          'img'=>$img
         ]);
 
 
