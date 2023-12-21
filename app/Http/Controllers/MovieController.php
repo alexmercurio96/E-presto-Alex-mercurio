@@ -12,6 +12,12 @@ use App\Http\Requests\MovieFormRequest;
 
 class MovieController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth')->except('index', 'show');
+    }
+
+
     public function create(){
 
         return view('movie.create');

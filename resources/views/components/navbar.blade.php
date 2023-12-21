@@ -12,17 +12,44 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{route('welcome')}}">Home</a>
           </li>
+          @auth
           <li class="nav-item">
             <a class="nav-link" href="{{route('movie.create')}}">inserisci il tuo film</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('movie.index')}}">tutti gli articoli</a>
+            <a class="nav-link" href="{{route('category.create')}}">inserisci una nuova categoria</a>
           </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+          @endauth
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('movie.index')}}">tutti i film</a>
+          </li>
+          @guest
+          <li class="nav-item bg-gradient mx-2">
+            <a class="nav-link" href="{{route('register')}}">Registrati</a>
+          </li>
+          <li class="nav-item bg-gradient">
+            <a class="nav-link" href="{{route('login')}}">Accedi</a>
+          </li>
+        @endguest
+        
+        @auth
+        <li class="nav-item dropdown bg-gradient">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{Auth::user()->name}} 
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <form  method="POST" action="{{route('logout')}}">
+                @csrf
+                <button class="dropdown-item" type="submit">Logout</button>
+              </form>
+            </li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        @endauth
       </div>
     </div>
   </nav>

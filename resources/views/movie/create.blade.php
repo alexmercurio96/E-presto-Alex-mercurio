@@ -2,12 +2,6 @@
   
   
   
-  @if (session('message'))
-  <div class="alert alert-success">
-    {{ session('message') }}<button type="button" class="btn-close mx-2" data-bs-dismiss="alert"
-    aria-label="Close"></button>
-  </div>
-  @endif
   
   
   {{-- HEADER --}}
@@ -28,9 +22,17 @@
     </div>
   </div>
   
+  {{-- articolo creato con successo --}}
+
+  @if (session('message'))
+  <div class="alert alert-success">
+    {{ session('message') }}<button type="button" class="btn-close mx-2" data-bs-dismiss="alert"
+    aria-label="Close"></button>
+  </div>
+  @endif
+  
   {{-- campi obbligatori --}}
-  
-  
+
   @if ($errors->any())
   <div class="alert alert-danger ">
     <p>completa il form <button type="button" class="btn-close mx-2" data-bs-dismiss="alert"

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,10 @@ Route::get('/movie/index',[MovieController::class,'index'])->name('movie.index')
 
 // rotta che mi mostra i dettagli di un film
 Route::get('/movie/show{movie}',[MovieController::class,'show'])->name('movie.show');
+
+
+// ROTTA PER LE MIE CATEGORIE
+
+// Rotta per mostrare il form di creazione della mie categorie
+
+Route::get('/category/create',[CategoryController::class,'create'])->name('category.create');

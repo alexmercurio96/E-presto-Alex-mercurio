@@ -30,7 +30,7 @@
         body="{{$movie->body}}" --}}
         
         :movie="$movie"
-
+        
         {{-- :movie funzione come quella di sopra :) --}}
         
         />
