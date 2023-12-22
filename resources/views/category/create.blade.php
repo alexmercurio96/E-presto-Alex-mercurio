@@ -49,7 +49,7 @@
           <div class="col-12 col-md-5">
             
             
-            <form enctype="multipart/form-data" method="POST" action=""
+            <form enctype="multipart/form-data" method="POST" action="{{route('category.store')}}"
             class="p-4  my-5 rounded-4 text-center bg-dark text-white form-custom">
             @csrf
             <div class="mb-4">
@@ -62,33 +62,25 @@
               <p class="text-small text-danger">{{ $message }}</p>
               @enderror
             </div>
-            <div class="mb-4">
-              <label for="author" class="form-label">Autore del film</label>
-              <input type="text" name="author" class="form-control @error('title') is-invalid @enderror"
-              value="{{ old('author') }}" id="author">
-              
-              @error('author')
-              <p class="text-small text-danger">{{ $message }}</p>
-              @enderror
-            </div>
+           
             <div class="mb-4">
               <label for="img" class="form-label">Immagine</label>
-              <input type="file" name="img" class="form-control  @error('title') is-invalid @enderror" id="img">
+              <input type="file" name="img" class="form-control  @error('img') is-invalid @enderror" id="img">
               @error('img')
               <p class="text-small text-danger">{{ $message }}</p>
               @enderror
             </div>
             <div class="mb-4">
-              <label for="body" class="form-label">Trama</label>
-              <textarea name="body" class="form-control @error('title') is-invalid @enderror" id="body" cols="30"
-              rows="10">{{ old('body') }}</textarea>
-              @error('body')
+              <label for="description" class="form-label">Descrizione</label>
+              <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="description" cols="30"
+              rows="10">{{ old('description') }}</textarea>
+              @error('description')
               <p class="text-small text-danger">{{ $message }}</p>
               @enderror
             </div>
             
             
-            <button type="submit" class="btn btn-primary flex-column">inserisci il film</button>
+            <button type="submit" class="btn btn-primary flex-column">inserisci la categoria</button>
           </form>
           
         </div>

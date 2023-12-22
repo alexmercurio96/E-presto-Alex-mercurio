@@ -23,6 +23,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('movie.index')}}">tutti i film</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('category.index')}}">Categorie</a>
+          </li>
           @guest
           <li class="nav-item bg-gradient mx-2">
             <a class="nav-link" href="{{route('register')}}">Registrati</a>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\CategoryController;
 
 class CategoryController extends Controller
 {
@@ -28,7 +29,23 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+
+        if($request->file('img')){
+            $img = $request->file('img')->store('/public/image');
+            }
+            else{
+                $img='public/image/default.jpg';
+            }
+            // MASS ASSIGNMENT e bisogna metterle tutte insieme perchè se viene aggiunta dopo non funziona
+            Category::create([
+              'name'=>$request->name,
+              'description'=>$request->description,
+              
+              'img'=>$img
+            ]);
+
+            return redirect()->back()->with('message','categoria inserita');
     }
 
     /**
@@ -36,7 +53,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        
     }
 
     /**

@@ -36,3 +36,7 @@ Route::get('/movie/show{movie}',[MovieController::class,'show'])->name('movie.sh
 // Rotta per mostrare il form di creazione della mie categorie
 
 Route::get('/category/create',[CategoryController::class,'create'])->name('category.create');
+
+Route::post('/category/store',[CategoryController::class,'store'])->name('category.store');
+
+Route::get('/category/index',[MovieController::class,'index'])->name('category.index');
