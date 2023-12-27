@@ -9,10 +9,13 @@
           <svg class="bi mt-5 mb-3" width="48" height="48"><use xlink:href="#check2-circle"></use></svg>
           <h1 class="text-body-emphasis">FILM</h1>
           <p class="col-lg-6 mx-auto mb-4">
-             qui potrai inserire i tuoi film
+             qui potrai inserire i tuoi film e la tua categoria
           </p>
-          <button class="btn btn-primary px-5 mb-5" type="button">
+          <button class="btn btn-primary px-5 mb-5 mr-1" type="button">
             <a class="nav-link align-items-center" href="{{route('movie.create')}}">crea il tuo film</a>
+          </button>
+          <button class="btn btn-primary px-5 mb-5" type="button">
+            <a class="nav-link align-items-center" href="{{route('category.create')}}">crea la tua categoria</a>
           </button>
         </div>
       </div>

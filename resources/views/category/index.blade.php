@@ -17,21 +17,21 @@
       </div>
     </div>
     
-    {{-- @dd($movies) --}}
+    {{-- @dd($categories) --}}
     
     <div class="container">
       <div class="row ">
         @foreach ($categories as $category)
         
         <div class="col-12 col-md-4 my-4 d-flex justify-content-center">
-          <x-card
+          <x-card-category
           {{-- title="{{$movie->title}}"
           author="{{$movie->author}}"
           body="{{$movie->body}}" --}}
           
-          :category="$category"
+          {{-- :category="$category" --}}
           
-          {{-- :movie funzione come quella di sopra :) --}}
+           :$category
           
           />
           

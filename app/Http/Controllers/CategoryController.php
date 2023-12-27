@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\CategoryFormRequest;
 use App\Http\Controllers\CategoryController;
 
 class CategoryController extends Controller
@@ -13,7 +14,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories= Category::all();
+        return view('category.index',
+        compact('categories')
+        );
+
     }
 
     /**
@@ -27,13 +32,16 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CategoryFormRequest $request)
     {
         // dd($request->all());
+
+          
 
         if($request->file('img')){
             $img = $request->file('img')->store('/public/image');
             }
+            // per l'immagine store sta a significare che vuole un percorso per arrivare all'immagine
             else{
                 $img='public/image/default.jpg';
             }
@@ -41,11 +49,10 @@ class CategoryController extends Controller
             Category::create([
               'name'=>$request->name,
               'description'=>$request->description,
-              
               'img'=>$img
             ]);
 
-            return redirect()->back()->with('message','categoria inserita');
+            return redirect()->back()->with('message',"Hai inserito la categoria :  $request->name");
     }
 
     /**
@@ -53,7 +60,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        
+        return view('category.show',compact('category'));
     }
 
     /**
@@ -61,7 +68,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('category.edit', compact('category'));
     }
 
     /**
@@ -69,7 +76,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        dd($request->all());
+        
     }
 
     /**

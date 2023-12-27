@@ -53,7 +53,7 @@
                         <label for="email" class="form-label">Email Utente</label>
                          <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
                          value="{{ old('email') }}" id="email">@error('email')
-                         <p class="text-small text-danger">e-mail errata</p>
+                         <p class="text-small text-danger">*</p>
                          @enderror
                     </div>
 
@@ -62,7 +62,7 @@
                         <label for="password" class="form-label">password Utente</label>
                          <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
                          id="password">@error('password')
-                         <p class="text-small text-danger">password sbagliata</p>
+                         <p class="text-small text-danger">*</p>
                          @enderror
                     </div>
 

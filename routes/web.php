@@ -39,4 +39,12 @@ Route::get('/category/create',[CategoryController::class,'create'])->name('categ
 
 Route::post('/category/store',[CategoryController::class,'store'])->name('category.store');
 
-Route::get('/category/index',[MovieController::class,'index'])->name('category.index');
+Route::get('/category/index',[CategoryController::class,'index'])->name('category.index');
+
+Route::get('/category/show{category}',[CategoryController::class,'show'])->name('category.show');
+
+// rotta che mi mostra un form di modifica
+Route::get('/category/edit{category}',[CategoryController::class,'edit'])->name('category.edit');
+
+// rotta per effettuare una modifica
+Route::put('/category/update{category}',[CategoryController::class,'update'])->name('category.update');

@@ -34,8 +34,8 @@
   {{-- campi obbligatori --}}
 
   @if ($errors->any())
-  <div class="alert alert-danger ">
-    <p>completa il form <button type="button" class="btn-close mx-2" data-bs-dismiss="alert"
+  <div>
+    <p class="alert alert-custom bg-danger">COMPILA IL FORM <button type="button" class="btn-close  " data-bs-dismiss="alert"
       aria-label="Close"></button></p>
       
       
