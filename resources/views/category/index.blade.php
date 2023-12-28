@@ -19,6 +19,8 @@
     
     {{-- @dd($categories) --}}
     
+    @if (count($categories))
+
     <div class="container">
       <div class="row ">
         @foreach ($categories as $category)
@@ -41,9 +43,17 @@
       </div>
     </div>
     
+    @else
+
+    <div class="container">
+      <div class="row ">
+
+        <h2>NON CI SONO CATEGORIE DISPONIBILI</h2>
+
+      </div>
+    </div>
     
-    
-    
+    @endif
     
   </x-layout>
   

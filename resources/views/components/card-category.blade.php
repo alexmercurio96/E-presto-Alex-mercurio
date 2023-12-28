@@ -12,5 +12,13 @@
     
      @endif
      <a href="{{route('category.edit',compact('category'))}}" class="btn btn-success">Modifica</a>
+
+     <form action="{{route('category.destroy',compact('category'))}}" method="POST">
+
+      @method('DELETE')
+      @csrf
+      
+      <button type="submit" class="btn btn-danger my-1">Elimina</button>
+      </form>
   </div>
 </div>

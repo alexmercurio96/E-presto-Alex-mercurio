@@ -48,3 +48,6 @@ Route::get('/category/edit{category}',[CategoryController::class,'edit'])->name(
 
 // rotta per effettuare una modifica
 Route::put('/category/update{category}',[CategoryController::class,'update'])->name('category.update');
+
+// rotta per eliminare una categoria
+Route::delete('/category/destroy{category}',[CategoryController::class,'destroy'])->name('category.destroy');

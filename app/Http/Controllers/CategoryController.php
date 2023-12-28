@@ -76,15 +76,34 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        dd($request->all());
         
+        if($request->file('img')){
+            $img = $request->file('img')->store('/public/image');
+            }
+            // per l'immagine store sta a significare che vuole un percorso per arrivare all'immagine
+            else{
+                $img=$category->img;
+            }
+
+        $category->update([
+            'name'=>$request->name,
+            'description'=>$request->description,
+            'img'=>$img
+          ]);
+
+        //   dd($category);
+        return redirect()->back()->with('message','La categoria è stata modificata con successo');
     }
+
+    
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        // in questo modo stiamo eliminando la categoria scelta
+        return redirect(route('category.index'))->with('message','La categoria è stata eliminata con successo');
     }
 }
