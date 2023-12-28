@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Movie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\MovieFormRequest;
 
 
@@ -60,7 +61,9 @@ class MovieController extends Controller
           'title'=>$request->title,
           'author'=>$request->author,
           'body'=>$request->body,
-          'img'=>$img
+          'img'=>$img,
+        //   'user_id'=>Auth::user()->id,
+          'user_id'=>Auth::id(),
         ]);
 
 
