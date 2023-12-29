@@ -22,7 +22,7 @@ class MovieFormRequest extends FormRequest
     {
         return [
         'title' => 'required|min:4',
-        'author' => 'required', 
+        // 'author' => 'required', 
         'body' => 'required|max:1000',
          'img'=> 'image'
         ];
@@ -39,7 +39,7 @@ public function messages(): array
         'title.required' => 'campo obbligatorio',
         'body.required' => 'campo obbligatorio',
         'img.image'=> 'non hai passato un file di tipo immagine',
-        'author.required' => "campo obbligatorio",
+        
         'title.min'=> 'minimo 4 caratteri',
         'body.max' => 'massimo 1000 caratteri'
     ];

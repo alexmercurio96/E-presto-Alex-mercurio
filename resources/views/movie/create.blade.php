@@ -62,7 +62,7 @@
             <p class="text-small text-danger">{{ $message }}</p>
             @enderror
           </div>
-          <div class="mb-4">
+          {{-- <div class="mb-4">
             <label for="author" class="form-label">Autore del film</label>
             <input type="text" name="author" class="form-control @error('title') is-invalid @enderror"
             value="{{ old('author') }}" id="author">
@@ -70,6 +70,14 @@
             @error('author')
             <p class="text-small text-danger">{{ $message }}</p>
             @enderror
+          </div> --}}
+          <div class="mb-4">
+          <select class="form-select" name="category" aria-label="Default select example">
+            <option selected>Seleziona categoria</option>
+            @foreach($categories as $category)
+            <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
+          </select>
           </div>
           <div class="mb-4">
             <label for="img" class="form-label">Immagine</label>

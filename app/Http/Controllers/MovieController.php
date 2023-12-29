@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Movie;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\MovieFormRequest;
@@ -21,7 +22,9 @@ class MovieController extends Controller
 
     public function create(){
 
-        return view('movie.create');
+        $categories=Category::all();
+
+        return view('movie.create',compact('categories'));
 
     }
     public function store(MovieFormRequest $request){
@@ -59,11 +62,12 @@ class MovieController extends Controller
         // MASS ASSIGNMENT e bisogna metterle tutte insieme perchè se viene aggiunta dopo non funziona
         Movie::create([
           'title'=>$request->title,
-          'author'=>$request->author,
+        //   'author'=>$request->author, modificato perchè abbiamo eliminato la colonna 
           'body'=>$request->body,
           'img'=>$img,
         //   'user_id'=>Auth::user()->id,
           'user_id'=>Auth::id(),
+          'category_id'=>$request->category,
         ]);
 
 

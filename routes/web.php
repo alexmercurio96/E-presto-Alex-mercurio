@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\CategoryController;
@@ -51,3 +52,6 @@ Route::put('/category/update{category}',[CategoryController::class,'update'])->n
 
 // rotta per eliminare una categoria
 Route::delete('/category/destroy{category}',[CategoryController::class,'destroy'])->name('category.destroy');
+
+// rotta per gestire la dashboard dell'utente
+Route::get('/user/dashboard', [UserController::class,'dashboard'])->name('user.dashboard');

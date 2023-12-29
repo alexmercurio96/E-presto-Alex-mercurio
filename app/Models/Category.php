@@ -13,4 +13,9 @@ class Category extends Model
     protected $fillable = [
       'name','description','img'
     ];
+
+    public function movies(){
+
+      return $this->hasMany(User::class);
+    }
 }
