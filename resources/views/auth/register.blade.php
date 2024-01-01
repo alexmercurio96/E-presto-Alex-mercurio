@@ -57,14 +57,17 @@
                         <label for="name" class="form-label">Nome Utente</label>
                         
                          <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                         value="{{ old('title') }}" id="title">
+                         value="{{ old('title') }}" id="title">@error('name')
+                         <p class="text-small text-danger">obbligatorio</p>
+                         @enderror
+                         
                     </div>
                     <div class="mb-4">
 
                         <label for="email" class="form-label">Email Utente</label>
                          <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
                          value="{{ old('email') }}" id="email">@error('email')
-                         <p class="text-small text-danger">e-mail errata</p>
+                         <p class="text-small text-danger">obbligatorio</p>
                          @enderror
                     </div>
 
@@ -72,7 +75,7 @@
                         <label for="password" class="form-label">Password</label>
                          <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password">
                          @error('password')
-                        <p class="text-small text-danger">password errata</p>
+                        <p class="text-small text-danger">obbligatorio</p>
                         @enderror
                           
                     </div>

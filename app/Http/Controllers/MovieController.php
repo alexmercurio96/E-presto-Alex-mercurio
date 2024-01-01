@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 
+use App\Models\Tag;
 use App\Models\Movie;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -23,12 +24,16 @@ class MovieController extends Controller
     public function create(){
 
         $categories=Category::all();
+        
+        $tags=Tag::all();
 
-        return view('movie.create',compact('categories'));
+        return view('movie.create',compact('categories','tags'));
 
     }
     public function store(MovieFormRequest $request){
       
+
+        // dd($request->all());
         //    $request->validate([
         //     'title' => 'required',
         //     'author' => 'required', 
@@ -59,17 +64,22 @@ class MovieController extends Controller
         else{
             $img='public/image/default.jpg';
         }
+       
         // MASS ASSIGNMENT e bisogna metterle tutte insieme perchè se viene aggiunta dopo non funziona
-        Movie::create([
+        // per poter dire al film che stiamo creando di mettersi in relazione ai tag e dobbiamo farlo instanziando ciè salvandolo in un oggetto
+         $movie=Movie::create([
           'title'=>$request->title,
         //   'author'=>$request->author, modificato perchè abbiamo eliminato la colonna 
           'body'=>$request->body,
           'img'=>$img,
         //   'user_id'=>Auth::user()->id,
           'user_id'=>Auth::id(),
-          'category_id'=>$request->category,
+          'category_id'=>$request->category
         ]);
-
+         
+        $movie->tags()->attach($request->tags);
+        
+        //  sto chiedendo al mio metodo di relazione di effettuare l'operazione di scrittura che definisce nella tabella pivot questa o queste relazioni
 
         return redirect()->back()->with('message','articolo inserito');
     }

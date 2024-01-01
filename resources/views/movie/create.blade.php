@@ -71,21 +71,34 @@
             <p class="text-small text-danger">{{ $message }}</p>
             @enderror
           </div> --}}
+          {{-- @dd($tags) --}}
           <div class="mb-4">
-          <select class="form-select" name="category" aria-label="Default select example">
+          <select  class="form-select" name="category" aria-label="Default select example">
             <option selected>Seleziona categoria</option>
             @foreach($categories as $category)
             <option value="{{$category->id}}">{{$category->name}}</option>
             @endforeach
           </select>
           </div>
-          <div class="mb-4">
+          <div class="mb-4" >
             <label for="img" class="form-label">Immagine</label>
             <input type="file" name="img" class="form-control  @error('title') is-invalid @enderror" id="img">
             @error('img')
             <p class="text-small text-danger">{{ $message }}</p>
             @enderror
           </div>
+         
+          <div class="mb-3" >
+            @foreach($tags as $tag)
+          <div class="form-check">
+            <input class="form-check-input" name="tags[]" type="checkbox" value="{{$tag->id}}" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              {{$tag->name}}
+            </label>
+         
+          </div>
+          @endforeach
+        </div>
           <div class="mb-4">
             <label for="body" class="form-label">Trama</label>
             <textarea name="body" class="form-control @error('title') is-invalid @enderror" id="body" cols="30"

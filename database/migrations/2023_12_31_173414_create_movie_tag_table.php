@@ -16,7 +16,7 @@ return new class extends Migration
 
             $table->unsignedBigInteger('movie_id');
             // nome della colonna che conterrà l'id dei movie
-            $table->foreign('movie_id')->references('id')->on('users');
+            $table->foreign('movie_id')->references('id')->on('movies');
             // questo movie_id sarà il riferimento degli id sulla tabella movies
             // stiamo vincolando la foreign key sulla cartella movies
 
