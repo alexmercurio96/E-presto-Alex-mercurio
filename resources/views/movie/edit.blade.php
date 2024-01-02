@@ -52,6 +52,7 @@
             <form enctype="multipart/form-data" method="POST" action="{{ route('movie.update',compact('movie')) }}"
             class="p-4  my-5 rounded-4 text-center bg-dark text-white form-custom">
             @csrf
+            @method('PUT')
             {{-- @method('PUT') --}}
             <div class="mb-4">
               <label for="title" class="form-label">Titolo del film</label>
@@ -75,9 +76,13 @@
             {{-- @dd($tags) --}}
             <div class="mb-4">
             <select  class="form-select" name="category" aria-label="Default select example">
-              <option selected>Seleziona categoria</option>
+              <option>Seleziona categoria</option>
               @foreach($categories as $category)
-              <option value="{{$category->id}}">{{$category->name}}</option>
+              <option 
+
+              @if ($category==$movie->category) selected @endif
+                  
+              value="{{$category->id}}">{{$category->name}}</option>
               @endforeach
             </select>
             </div>

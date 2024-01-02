@@ -109,6 +109,36 @@ class MovieController extends Controller
     }
     public function update(Request $request, Movie $movie)
     {
-        
+        if($request->file('img')){
+            $img = $request->file('img')->store('/public/image');
+            }
+            // per l'immagine store sta a significare che vuole un percorso per arrivare all'immagine
+            else{
+                $img=$movie->img;
+            }
+
+        $movie->update([
+            'title'=>$request->title,
+        //   'author'=>$request->author, modificato perchè abbiamo eliminato la colonna 
+          'body'=>$request->body,
+          'img'=>$img,
+        //   'user_id'=>Auth::user()->id,
+          'user_id'=>Auth::id(),
+          'category_id'=>$request->category
+          ]);
+
+           $movie->tags()->sync($request->tags);
+        // Attraverso il metodo sync Laravel automaticamente andrò ad aggiornare la tabella pivot con le nuove relazioni o eliminare quelle non più esistenti
+        //   dd($category);
+        return redirect()->back()->with('message','Film modificato con successo');
     }
+    public function destroy(Movie $movie)
+    {
+        $movie->tags()->detach();
+        // con il metodo detach andiamo ad eliminare tutti i record nella tabella pivot che definiscono la relazione fra quest articolo e tutti i tag relazionati
+        $movie->delete();
+        // in questo modo stiamo eliminando la categoria scelta
+        return redirect(route('movie.index'))->with('message','il film è stato eliminato con successo');
+    }
+    // prima di eliminare il film bisogna eliminare la relazione
 }

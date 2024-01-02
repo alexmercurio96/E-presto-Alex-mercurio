@@ -27,5 +27,13 @@
      @endif
      <a href="{{route('movie.edit',compact('movie'))}}" class="btn btn-success">modifica</a>
 
+     <form action="{{route('movie.destroy',compact('movie'))}}" method="POST">
+
+      @method('DELETE')
+      @csrf
+      
+      <button type="submit" class="btn btn-danger my-1">Elimina</button>
+      </form>
+
   </div>
 </div>

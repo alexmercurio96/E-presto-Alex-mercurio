@@ -19,6 +19,8 @@ use App\Http\Controllers\CategoryController;
 
 Route::get('/',[PublicController::class,'welcome'])->name('welcome');
 
+// ROTTA PER I MIEI FILM
+
 // Rotta che mi mostra il form per creare un film di blog
 Route::get('/movie/create',[MovieController::class,'create'])->name('movie.create');
 
@@ -31,6 +33,16 @@ Route::get('/movie/index',[MovieController::class,'index'])->name('movie.index')
 // rotta che mi mostra i dettagli di un film
 Route::get('/movie/show{movie}',[MovieController::class,'show'])->name('movie.show');
 
+// rotta per modificare un film esistente
+Route::get('/movie/edit{movie}',[MovieController::class,'edit'])->name('movie.edit');
+
+// rotta che mi serve per effettuare la modifica dei film
+Route::put('/movie/update{movie}',[MovieController::class,'update'])->name('movie.update');
+
+// rotta per andare ad eliminare il film
+Route::delete('/movie/detroy{movie}',[MovieController::class,'destroy'])->name('movie.destroy');
+
+// Route::resource('movie', MovieController::class); questo metodo mi permette di registrare tutte le rotte del crud passandogli come parametri il modello al singolare minuscolo e il controller di riferimento
 
 // ROTTA PER LE MIE CATEGORIE
 
@@ -56,8 +68,3 @@ Route::delete('/category/destroy{category}',[CategoryController::class,'destroy'
 // rotta per gestire la dashboard dell'utente
 Route::get('/user/dashboard', [UserController::class,'dashboard'])->name('user.dashboard');
 
-// rotta per modificare un film esistente
-Route::get('/movie/edit{movie}',[MovieController::class,'edit'])->name('movie.edit');
-
-// rotta che mi serve per effettuare la modifica dei film
-Route::post('/movie/update{movie}',[MovieController::class,'update'])->name('movie.update');
