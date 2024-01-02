@@ -101,4 +101,14 @@ class MovieController extends Controller
         compact('movie')
     );
     }
+    public function edit(Movie $movie)
+    {
+        $categories=Category::all();
+        $tags=Tag::all();
+        return view('movie.edit', compact('movie','categories','tags'));
+    }
+    public function update(Request $request, Movie $movie)
+    {
+        
+    }
 }

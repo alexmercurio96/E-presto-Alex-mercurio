@@ -55,3 +55,9 @@ Route::delete('/category/destroy{category}',[CategoryController::class,'destroy'
 
 // rotta per gestire la dashboard dell'utente
 Route::get('/user/dashboard', [UserController::class,'dashboard'])->name('user.dashboard');
+
+// rotta per modificare un film esistente
+Route::get('/movie/edit{movie}',[MovieController::class,'edit'])->name('movie.edit');
+
+// rotta che mi serve per effettuare la modifica dei film
+Route::post('/movie/update{movie}',[MovieController::class,'update'])->name('movie.update');
