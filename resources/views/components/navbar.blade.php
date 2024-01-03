@@ -42,8 +42,7 @@
             {{Auth::user()->name}} 
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{route('user.dashboard')}}">Dashboard Utente</a></li
-            <li>
+            <><a class="dropdown-item" href="{{route('user.dashboard')}}">Dashboard Utente</a>
               <form  method="POST" action="{{route('logout')}}">
                 <li><hr class="dropdown-divider"></li>
                 @csrf

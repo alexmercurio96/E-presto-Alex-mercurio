@@ -1,6 +1,6 @@
 <div class=" p-2 card-custom card" data-bs-theme="dark" style="width: 18rem;">
   <img src="{{Storage::url($category->img)}}" class="card-img-top" alt="...">
-  <div class="card-body ">
+  <div class="card-body">
     <h5 class="card-title">{{$category->name}}</h5>
     <p class="card-text">Descrizione della categoria :  {{$category->description}}</p>
     @if (Route::currentRouteName()=='category.index')
