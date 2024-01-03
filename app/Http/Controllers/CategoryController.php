@@ -42,7 +42,7 @@ class CategoryController extends Controller
           
 
         if($request->file('img')){
-            $img = $request->file('img')->store('/public/image');
+            $img = $request->file('img')->store('public/image');
             }
             // per l'immagine store sta a significare che vuole un percorso per arrivare all'immagine
             else{

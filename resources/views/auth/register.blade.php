@@ -4,9 +4,7 @@
 
     <div class="container my-5" data-bs-theme="dark">
         <div class="position-relative p-5 text-center text-muted bg-body border border-dashed rounded-5 header-custom">
-          <button type="button"
-          class="position-absolute top-0 end-0 p-3 m-3 btn-close bg-secondary bg-opacity-10 rounded-pill"
-          aria-label="Close"></button>
+
           <svg class="bi mt-5 mb-3" width="48" height="48">
             <use xlink:href="#check2-circle"></use>
           </svg>
